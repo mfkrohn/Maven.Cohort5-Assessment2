@@ -10,7 +10,16 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(stringToBePadded);
+        Integer amountOfSpaces = amountOfPadding - stringBuilder.length();
+        for (int i = 0; i < amountOfSpaces; i++) {
+            stringBuilder.insert(0," ");
+
+        }
+
+
+        return stringBuilder.toString();
     }
 
     /**
@@ -19,7 +28,16 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(stringToBePadded);
+        Integer amountOfSpaces = amountOfPadding - stringBuilder.length();
+        for (int i = 0; i < amountOfSpaces; i++) {
+            stringBuilder.append(" ");
+
+        }
+
+
+        return stringBuilder.toString();
     }
 
     /**
@@ -28,7 +46,12 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < numberOfTimeToRepeat ; i++) {
+            stringBuilder.append(stringToBeRepeated);
+        }
+
+        return stringBuilder.toString();
     }
 
     /**
@@ -36,7 +59,16 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        char[] charArray = string.toCharArray();
+        for(char thisChar : charArray){
+            if(thisChar!= 32 && thisChar < 65 || thisChar > 122 ){
+                return false;
+            }
+            else if(thisChar > 90 && thisChar < 97){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -44,7 +76,15 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        char[] charArray = string.toCharArray();
+        for(char thisChar : charArray){
+            if(thisChar < 48 || thisChar > 57){
+                return false;
+            }
+
+            }
+
+        return true;
     }
 
     /**
@@ -52,6 +92,14 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        char[] charArray = string.toCharArray();
+        for(char thisChar : charArray){
+            if(Character.isAlphabetic(thisChar) || Character.isDigit(thisChar)){
+                return false;
+            }
+
+        }
+
+        return true;
     }
 }
