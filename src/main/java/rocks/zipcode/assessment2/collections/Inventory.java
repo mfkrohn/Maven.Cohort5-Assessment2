@@ -34,7 +34,7 @@ public class Inventory {
 
 
 
-        inventoryMap.put(item, inventoryMap.get(item)+1);
+        inventoryMap.put(item, inventoryMap.getOrDefault(item,0)+1);
 
 
     }
@@ -43,7 +43,7 @@ public class Inventory {
      * @param item - decrement the number of this item in stock by 1
      */
     public void removeItemFromInventory(String item) {
-        inventoryMap.remove(item);
+        inventoryMap.put(item,inventoryMap.get(item)-1);
 
 
     }
